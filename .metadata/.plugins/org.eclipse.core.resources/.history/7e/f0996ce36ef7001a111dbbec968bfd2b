@@ -1,0 +1,9 @@
+package com.example.task;
+
+import java.util.List;
+
+
+
+public interface TaskService {
+	public List<Task> listTasks();
+}

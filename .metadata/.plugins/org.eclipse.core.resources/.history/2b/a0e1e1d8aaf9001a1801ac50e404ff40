@@ -1,0 +1,59 @@
+package com.example.task;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class TaskServiceImpl implements TaskService{
+	
+	@Autowired
+	TaskRepositroy taskRepository;
+	
+	@Override
+	@Transactional
+	public List<Task> listTasks() {
+		// TODO Auto-generated method stub
+		
+		
+		return (List<Task>) taskRepository.findAll();
+	}
+
+	@Override
+	@Transactional
+	public String addTask(String tname, Integer associate_id, String tdate, String task_type) {
+		// TODO Auto-generated method stub
+		Task task= new Task();
+		task.setAssociate_id(associate_id);
+		task.setTdate(tdate);
+		task.setTname(tname);
+		task.setTask_type(task_type);
+		taskRepository.save(task);
+		return "Task added: "+task.getTname();
+	}
+
+	@Override
+	@Transactional
+	public String updateStatus(Integer id, Integer status) {
+		
+		if(taskRepository.updateTaskStatus(id, status) != null) {
+			return "update successful";
+		};
+		return "update failed";
+	}
+
+	@Override
+	@Transactional
+	public List<Task> getAssociateTasks(Integer id) {
+		Integer foo[] = {id};
+		Iterable<Integer> fooBar = Arrays.asList(foo);
+		return taskRepository.findAllById(fooBar);
+		return taskRepository.findByAssociate_id(id);
+		//taskRepository.findAll
+	}
+
+}

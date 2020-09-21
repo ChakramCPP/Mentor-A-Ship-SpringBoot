@@ -1,0 +1,14 @@
+package com.example.mentorship.taskTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class taskTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

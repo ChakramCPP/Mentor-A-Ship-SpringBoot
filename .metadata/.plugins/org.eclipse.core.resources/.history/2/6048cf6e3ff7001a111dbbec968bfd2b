@@ -1,0 +1,30 @@
+package com.example.admin;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.associate.Associate;
+import com.example.associate.AssociateRepository;
+import com.example.mentor.MentorRepository;
+
+@Controller // This means that this class is a Controller
+@RequestMapping(path="/admin") // This means URL's start with /demo (after Application path)
+public class AdminController {
+
+	@Autowired // This means to get the bean called userRepository
+	private AdminRepository adminRepository;
+
+
+	@GetMapping(path="/all")
+	public @ResponseBody Iterable<Admin> getAllUsers() {
+	// This returns a JSON or XML with the users
+		//System.out.println(adminRepository.findById(1).get().getAd_name());
+	System.out.println(adminRepository.findByAdname("Krishna"));
+	return adminRepository.findAll();
+	}
+}

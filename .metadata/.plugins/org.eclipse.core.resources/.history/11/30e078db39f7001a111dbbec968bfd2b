@@ -1,0 +1,10 @@
+package com.example.admin;
+import com.example.associate.AssociateRepository;
+import com.example.mentor.MentorRepository;
+
+public class AdminController {
+	
+	
+	
+
+}

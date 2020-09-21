@@ -1,0 +1,43 @@
+package com.example.associate;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class AssociateServiceImpl implements AssociateService {
+	
+	@Autowired
+	private  AssociateRepository associateRepository;
+
+	@Override
+	@Transactional
+	public List<Associate> listAssociates() {
+		
+		
+		return associateRepository.findAll();
+	}
+
+	@Override
+	@Transactional
+	public String addAssociate(Associate a) {
+		
+		associateRepository.save(a);
+		return "Added"+a.getAname();
+	}
+
+	@Override
+	@Transactional
+	public String updateAssociate(Associate a) {
+		
+		Optional<Associate> a1=associateRepository.findById(a.getAss_id());
+		System.out.println(a1.get().getAname());
+		
+		return "updated"+a.getAname();
+	}
+
+}

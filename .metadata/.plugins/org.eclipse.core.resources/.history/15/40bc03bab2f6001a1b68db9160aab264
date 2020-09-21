@@ -1,0 +1,60 @@
+package com.example.mentorship;
+
+import java.sql.Blob;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Associate {
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private Integer id;
+
+  private String name;
+
+  private String email;
+  
+  private String pwd;
+  
+  private Blob blob = null;
+
+//  associate( ass_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//			 aname VARCHAR(20) NOT NULL,
+//          email VARCHAR(30) NOT NULL UNIQUE,
+//          pwd VARCHAR(255) NOT NULL,
+//          photograph BLOB DEFAULT NULL);
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+public String getPwd() {
+	return pwd;
+}
+
+public void setPwd(String pwd) {
+	this.pwd = pwd;
+}
+}

@@ -1,0 +1,19 @@
+package com.example;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+
+import com.example.associate.AssociateController;
+
+//@Import(AssociateController.class)
+@SpringBootApplication
+@ComponentScan(basePackages= {"com.example.associate","com.example.mentor"}	)
+public class MentorshipApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MentorshipApplication.class, args);
+	}
+
+}

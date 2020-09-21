@@ -1,0 +1,25 @@
+package com.example.mentorship;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite.SuiteClasses;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.example.mentorship.associateTest.associateTest;
+import com.example.mentorship.mentor.mentorTest;
+import com.example.mentorship.taskTest.taskTest;
+
+@RunWith(SpringRunner.class)
+//@SelectPackages()
+@SuiteClasses({ associateTest.class,
+	mentorTest.class,
+	taskTest.class})@SpringBootTest
+class MentorshipApplicationTests {
+
+	@Test
+	void contextLoads() {
+		
+	}
+
+}

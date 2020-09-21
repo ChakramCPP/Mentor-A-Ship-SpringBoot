@@ -1,0 +1,63 @@
+package com.example.associate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller // This means that this class is a Controller
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path="/associate") // This means URL's start with /demo (after Application path)
+public class AssociateController {
+
+	@Autowired // This means to get the bean called userRepository
+	private AssociateRepository associateRepository;
+	List<Associate> ass;
+	@PostMapping(path="/add") // Map ONLY POST Requests
+	public @ResponseBody String addNewAssociate (@RequestBody Associate a) {
+
+//				Associate a = new Associate();
+//				a.setAname(name);
+//				a.setEmail(email);
+//				a.setPwd(pwd);
+//				a.setMentor(1);
+				System.out.println(associateRepository.save(a));
+				System.out.println("hammaya");
+				return "Saved"+a.getAname();
+			}
+
+	@GetMapping(path="/ass")
+	public @ResponseBody List<Associate> getAllUsers() {
+	// This returns a JSON or XML with the users
+		System.out.println("asked for all associates ra");
+		JSONObject obj = new JSONObject();
+	return (List<Associate>) associateRepository.findAll();
+	}
+	
+	@GetMapping(path="/all")
+	@Transactional
+	public @ResponseBody String getAll() {
+	// This returns a JSON or XML with the users
+		Associate a = new Associate();
+		//associateRepository.findAll()
+		System.out.println("asked for all associates ra");
+		JSONObject obj = new JSONObject();
+		  
+
+		ass =associateRepository.findAll();
+		obj.put("associates:", ass);
+		String jsonText = JSONValue.toJSONString(obj);
+	return "Hare Krishna";
+	}
+	
+}

@@ -1,0 +1,71 @@
+package com.example.admin;
+
+import java.sql.Blob;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//CREATE TABLE admins( adid INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//		 adname VARCHAR(20) NOT NULL,
+//        ademail VARCHAR(30) NOT NULL UNIQUE,
+//        adpwd VARCHAR(255) NOT NULL,
+//        adphotograph BLOB DEFAULT NULL);
+
+@Entity
+@Table(name="admins")
+public class Admin {
+	
+	@Id
+	  @GeneratedValue(strategy=GenerationType.IDENTITY)
+	  private Integer adid;
+	  
+	  @Column(name="ad_name")
+	  private String adname;
+
+	  private String ademail;
+	  
+	  private String adpwd;
+	  
+	  private Blob adphotograph =null;
+	
+	public Integer getAdid() {
+		return adid;
+	}
+
+	public void setAdid(Integer adid) {
+		this.adid = adid;
+	}
+
+	public String getAdname() {
+		return adname;
+	}
+
+	public void setAdname(String adname) {
+		this.adname = adname;
+	}
+
+	public String getAdemail() {
+		return ademail;
+	}
+
+	public void setAdemail(String ademail) {
+		this.ademail = ademail;
+	}
+
+	public String getAdpwd() {
+		return adpwd;
+	}
+
+	public void setAdpwd(String adpwd) {
+		this.adpwd = adpwd;
+	}
+
+  
+
+
+  
+}

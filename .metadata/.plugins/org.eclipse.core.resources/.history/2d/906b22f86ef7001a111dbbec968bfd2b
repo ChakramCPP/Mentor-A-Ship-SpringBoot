@@ -1,0 +1,19 @@
+package com.example.task;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class TaskServiceImpl implements TaskService{
+	
+	@Autowired
+	TaskRepositroy taskRepository;
+	@Override
+	public List<Task> listTasks() {
+		// TODO Auto-generated method stub
+		
+		
+		return (List<Task>) taskRepository.findAll();
+	}
+
+}

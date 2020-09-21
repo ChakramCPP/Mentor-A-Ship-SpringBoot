@@ -1,0 +1,57 @@
+package com.example.associate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.MentorshipApplication;
+
+@Controller
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path="/associate") 
+public class AssociateController {
+
+	@Autowired
+	private AssociateServiceImpl associateService;
+	public static final Logger logger = LogManager.getLogger(AssociateController.class);
+	List<Associate> ass;
+	@PostMapping(path="/add") 
+	public @ResponseBody String addNewAssociate (@RequestBody Associate a) {
+					return associateService.addAssociate(a);
+			}
+	
+	@PutMapping(path="/update") 
+	public @ResponseBody String update(@RequestBody Associate a) {
+		
+					return associateService.updateAssociate(a);
+			}
+	
+
+//	@GetMapping(path="/ass")
+//	public @ResponseBody List<Associate> getAllUsers() {
+//		System.out.println("asked for all associates ra");
+//	return (List<Associate>) associateRepository.findAll();
+//	}									`	`					
+	
+	@GetMapping(path="/all")
+	public @ResponseBody List<Associate> getAll() {
+		System.out.println("asked for all associates ra");
+		logger.info("info asked for all associates");
+		return associateService.listAssociates();
+	}
+	
+}

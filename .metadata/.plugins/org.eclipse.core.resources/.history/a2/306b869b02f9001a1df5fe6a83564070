@@ -1,0 +1,33 @@
+package com.example.task;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller // This means that this class is a Controller
+@RequestMapping(path="/task")
+public class TaskController {
+
+	@Autowired // This means to get the bean called userRepository
+	private TaskServiceImpl taskService;
+
+	@PostMapping(path="/add") // Map ONLY POST Requests
+	public @ResponseBody String addNewTask(@RequestBody Task t) {
+		return taskService.addTask(t.getTname(), t.getAssociate_id(), t.getTdate(), t.getTask_type());
+		//System.out.println(t);
+		//return null;
+	}
+
+	@GetMapping(path="/all")
+	public @ResponseBody List<Task> getAllUsers() {
+	// This returns a JSON or XML with the users
+	return taskService.listTasks();
+	}
+}

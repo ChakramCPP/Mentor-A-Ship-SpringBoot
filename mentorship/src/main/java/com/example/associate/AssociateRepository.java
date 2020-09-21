@@ -1,0 +1,17 @@
+package com.example.associate;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
+// CRUD refers Create, Read, Update, Delete
+
+public interface AssociateRepository extends JpaRepository<Associate, Integer> {
+	
+	
+//	@Modifying(clearAutomatically = true)
+//    @Query("select a.ass_id from Associate a")
+//	List<Associate> getAssociateId();
+	//public Associate findById();
+	
+
+}

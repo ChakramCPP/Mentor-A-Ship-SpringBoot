@@ -1,0 +1,52 @@
+package com.example.mentor;
+
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.admin.AdminController;
+import com.example.associate.Associate;
+
+@Controller 
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path="/mentor")
+public class MentorController {
+
+	@Autowired 
+	private MentorServiceImpl mentorService;
+	private static Logger logger = LogManager.getLogger(MentorController.class);
+
+	@PostMapping(path="/add")
+	public @ResponseBody String addNewUser (@RequestBody Mentor m) {
+		
+			if(mentorService.addMentor(m)=="failed") {
+				logger.error("ERROR mentor registration failed");
+			}
+				logger.info("INFO new Mentor registered");
+
+				return "Added: "+m.getMname();
+			}
+
+	@GetMapping(path="/all")
+	public @ResponseBody List<Mentor> getAllUsers() {
+				return mentorService.listMentors();
+			}
+
+	@PutMapping(path="/update") 
+	public @ResponseBody String update(@RequestBody Mentor m) {
+		
+					return mentorService.updateMentor(m);
+			}
+}
+

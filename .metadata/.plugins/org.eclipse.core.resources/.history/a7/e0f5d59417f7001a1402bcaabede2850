@@ -1,0 +1,76 @@
+package com.example.associate;
+
+import java.sql.Blob;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//CREATE TABLE mentor( mentor_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//		 mname VARCHAR(20) NOT NULL,
+//        email VARCHAR(30) NOT NULL,
+//        organization VARCHAR(20) DEFAULT NULL,
+//        role VARCHAR(20) DEFAULT NULL,
+//        aoi VARCHAR(30) DEFAULT NULL,
+//        expertise VARCHAR(30) DEFAULT NULL,
+//        pwd VARCHAR(255) NOT NULL,
+//        photograph BLOB DEFAULT NULL);
+
+@Entity
+@Table(name="mentor")
+public class Mentor {
+  @Id
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
+  private Integer mentor_id;
+  
+  private String mname;
+
+  private String email;
+  
+  private String organization;
+  
+  private String role;
+  
+  private String aoi;
+  
+  private String expertise;
+ 
+  private String pwd;
+  
+  private Blob photograph = null;
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+public String getPwd() {
+	return pwd;
+}
+
+public void setPwd(String pwd) {
+	this.pwd = pwd;
+}
+
+
+public String getMname() {
+	return mname;
+}
+
+public void setMname(String mname) {
+	this.mname = mname;
+}
+
+public String getOrganization() {
+	return organization;
+}
+
+public void setOrganization(String organization) {
+	this.organization = organization;
+}
+}

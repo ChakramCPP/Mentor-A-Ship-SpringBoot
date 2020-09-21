@@ -1,0 +1,39 @@
+2020-09-21 11:26:47,287 INFO o.s.b.StartupInfoLogger [restartedMain] Starting MentorshipApplication on pani with PID 4192 (/home/chakr/Desktop/Capstone_Project/Springboot/mentorship/target/classes started by chakr in /home/chakr/Desktop/Capstone_Project/Springboot/mentorship)
+2020-09-21 11:26:47,295 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-21 11:26:47,296 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-09-21 11:26:47,401 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-21 11:26:47,408 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-21 11:26:48,732 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-09-21 11:26:48,916 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 78ms. Found 5 JPA repository interfaces.
+2020-09-21 11:26:49,696 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-09-21 11:26:49,706 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-09-21 11:26:49,707 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-09-21 11:26:49,707 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 11:26:49,853 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-09-21 11:26:49,853 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2444 ms
+2020-09-21 11:26:49,934 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2020-09-21 11:26:51,052 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2020-09-21 11:26:51,055 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/mentorship'
+2020-09-21 11:26:51,328 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-21 11:26:51,437 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-09-21 11:26:51,581 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-09-21 11:26:51,712 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-09-21 11:26:52,087 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-09-21 11:26:52,578 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-21 11:26:52,826 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-09-21 11:26:52,850 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-09-21 11:26:52,952 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 11:26:52,955 INFO o.s.d.r.c.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2020-09-21 11:26:53,690 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-09-21 11:26:53,700 INFO o.s.o.j.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-21 11:26:54,128 INFO o.s.d.r.c.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2020-09-21 11:26:54,139 INFO o.s.b.StartupInfoLogger [restartedMain] Started MentorshipApplication in 7.7 seconds (JVM running for 9.695)
+2020-09-21 11:28:03,315 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 11:28:03,315 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-09-21 11:28:03,321 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 6 ms
+2020-09-21 11:34:22,596 INFO c.e.a.AdminController [http-nio-8080-exec-4] INFO new Associate mapped to Mentor
+2020-09-21 11:35:58,523 INFO o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(11)-127.0.0.1] Application shutdown requested.
+2020-09-21 11:35:58,716 INFO o.s.o.j.AbstractEntityManagerFactoryBean [RMI TCP Connection(11)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-21 11:35:58,720 INFO o.s.s.c.ExecutorConfigurationSupport [RMI TCP Connection(11)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-21 11:35:58,723 INFO c.z.h.HikariDataSource [RMI TCP Connection(11)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2020-09-21 11:35:58,731 INFO c.z.h.HikariDataSource [RMI TCP Connection(11)-127.0.0.1] HikariPool-1 - Shutdown completed.

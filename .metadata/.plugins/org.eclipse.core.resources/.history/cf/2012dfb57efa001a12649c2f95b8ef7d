@@ -1,0 +1,31 @@
+package com.example.admin;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class AdminServiceImpl implements AdminService {
+	@Autowired
+	private AdminRepository adminRepository;
+	
+	@Override
+	@Transactional
+	public List<Admin> listAdmins() {
+		// TODO Auto-generated method stub
+		//System.out.println("Success");
+		return adminRepository.findAll();
+	}
+	
+	@Override
+	@Transactional
+	public String mapMentors(Integer mentor,Integer associate_id) {
+		 System.out.println(adminRepository.mapMentor(mentor, associate_id));
+		 return "ok";
+	}
+
+
+
+}

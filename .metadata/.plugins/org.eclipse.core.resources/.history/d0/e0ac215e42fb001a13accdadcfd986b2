@@ -1,0 +1,67 @@
+package com.example.mentorship.taskTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+
+import com.example.mentor.Mentor;
+import com.example.mentor.MentorController;
+import com.example.task.Task;
+import com.example.task.TaskController;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class taskTest {
+
+private MockMvc mockMvc;
+	
+	@Autowired
+	private WebApplicationContext context;
+	
+	ObjectMapper om = new ObjectMapper();
+	
+	@InjectMocks
+	private TaskController taskController; 
+	
+	@BeforeEach
+	public void setUp() throws Exception{
+		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+		System.out.println(mockMvc);
+	}
+
+	@Test
+	void test() throws Exception {
+		//		fail("Not yet implemented");
+		Task t = new Task();
+		t.setTname("test name");
+		t.setAssociateid(1);
+		t.setTask_type("project");
+		t.setTdate("23/3/2003");
+		String j=om.writeValueAsString(t);
+			
+		//MvcResult result=
+				mockMvc.perform(
+				get("/task/all")
+				.content(MediaType.APPLICATION_JSON_VALUE))
+				.andExpect(jsonPath("$",Matchers.hasSize(11)))
+				.andExpect(jsonPath("$[4].tname",Matchers.is("coding")));
+//				.andExpect(jsonPath("$",Matchers.hasSize(17)));
+//		.andExpect(jsonPath("$[0].aname",Matchers.is("chakri"))
+//		.andExpect(status().isOk())
+	}
+
+}

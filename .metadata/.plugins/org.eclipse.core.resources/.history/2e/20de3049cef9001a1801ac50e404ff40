@@ -1,0 +1,25 @@
+package com.example.associate;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class AssociateServiceImpl implements AssociateService {
+	
+	@Autowired
+	private  AssociateRepository associateRepository;
+
+	@Override
+	public List<Associate> listAssociates() {
+		
+		return null;
+	}
+
+	@Override
+	public String addAssociate(Associate a) {
+		
+		associateRepository.save(a);
+		return "Added"+a.getAname();
+	}
+
+}

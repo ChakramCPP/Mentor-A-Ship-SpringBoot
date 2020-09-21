@@ -1,0 +1,22 @@
+package com.example.associate;
+
+import java.util.List;
+
+import com.example.admin.Admin;
+import com.example.admin.AdminService;
+
+public class AdminServiceImpl implements AdminService {
+
+	@Override
+	public List<Admin> listAdmins() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String mapMentors(Integer mentor, Integer associate_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

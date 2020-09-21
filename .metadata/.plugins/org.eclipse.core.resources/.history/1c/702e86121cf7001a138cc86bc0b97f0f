@@ -1,0 +1,13 @@
+package com.example.mentor;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages = { "com.example.associate"} )
+public class MentorshipApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MentorshipApplication.class, args);
+	}
+
+}

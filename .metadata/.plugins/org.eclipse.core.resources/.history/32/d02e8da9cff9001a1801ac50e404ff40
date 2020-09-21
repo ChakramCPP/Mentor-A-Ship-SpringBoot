@@ -1,0 +1,31 @@
+package com.example.mentor;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class MentorServiceImpl implements MentorService {
+	
+	@Autowired
+	@Transactional
+	private MentorRepository mentorRepository;
+
+	@Override
+	public List<Mentor> listMentors() {
+		
+		return mentorRepository.findAll();
+	}
+
+	@Override
+	@Transactional
+	public String addMentor(Mentor m) {
+		
+		mentorRepository.save(m);
+		
+		return "Added mentor:"+m.getMname();
+	}
+
+}

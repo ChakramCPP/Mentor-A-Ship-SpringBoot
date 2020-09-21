@@ -1,0 +1,9 @@
+package com.example.resources;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.resources.Resources;
+
+public interface ResourceRepository extends CrudRepository<Task, Integer> {
+
+}

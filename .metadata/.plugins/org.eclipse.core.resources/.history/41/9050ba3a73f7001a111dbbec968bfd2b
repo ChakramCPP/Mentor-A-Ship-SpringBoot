@@ -1,0 +1,67 @@
+package com.example.resources;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//CREATE TABLE resources(rid INT auto_increment primary key,
+//		   tid INT NOT NULL,
+//		   rname VARCHAR(255) NOT NULL,
+//        link VARCHAR(255) DEFAULT NULL,
+//        FOREIGN KEY (tid)
+//			REFERENCES tasks (tid)
+//			ON UPDATE RESTRICT ON DELETE CASCADE);
+
+@Entity
+@Table(name="tasks")
+public class Resource {
+  @Id
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
+  private Integer rid;
+  
+  private Integer tid;
+  
+  private String rname;
+  
+  private String link;
+
+public Integer getRid() {
+	return rid;
+}
+
+public void setRid(Integer rid) {
+	this.rid = rid;
+}
+
+public Integer getTid() {
+	return tid;
+}
+
+public void setTid(Integer tid) {
+	this.tid = tid;
+}
+
+public String getRname() {
+	return rname;
+}
+
+public void setRname(String rname) {
+	this.rname = rname;
+}
+
+public String getLink() {
+	return link;
+}
+
+public void setLink(String link) {
+	this.link = link;
+}
+
+@Override
+public String toString() {
+	return "Resources [rid=" + rid + ", tid=" + tid + ", rname=" + rname + ", link=" + link + "]";
+}
+  
+}

@@ -1,0 +1,44 @@
+CREATE TABLE admins( ad_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+					 ad_name VARCHAR(20) NOT NULL,
+                     ad_email VARCHAR(30) NOT NULL UNIQUE,
+                     ad_pwd VARCHAR(255) NOT NULL,
+                     ad_photograph BLOB DEFAULT NULL);
+
+
+CREATE TABLE associate( ass_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+					 aname VARCHAR(20) NOT NULL,
+                     email VARCHAR(30) NOT NULL UNIQUE,
+                     pwd VARCHAR(255) NOT NULL,
+                     photograph BLOB DEFAULT NULL);
+
+CREATE TABLE mentor( mentor_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+					 mname VARCHAR(20) NOT NULL,
+                     email VARCHAR(30) NOT NULL,
+                     organization VARCHAR(20) DEFAULT NULL,
+                     role VARCHAR(20) DEFAULT NULL,
+                     aoi VARCHAR(30) DEFAULT NULL,
+                     expertise VARCHAR(30) DEFAULT NULL,
+                     pwd VARCHAR(255) NOT NULL,
+                     photograph BLOB DEFAULT NULL);
+
+CREATE TABLE tasks(tid INT AUTO_INCREMENT PRIMARY KEY,
+				   tname VARCHAR(255) DEFAULT NULL,
+                   associate_id INT UNSIGNED NOT NULL,
+				   tdate VARCHAR(20) DEFAULT NULL,
+                   task_status INT DEFAULT 0,
+                   task_type VARCHAR(20) DEFAULT "TASK",
+                   FOREIGN KEY (associate_id)
+						REFERENCES associate (ass_id)
+						ON UPDATE RESTRICT ON DELETE CASCADE);
+
+
+CREATE TABLE resources(rid INT auto_increment primary key,
+					   tid INT NOT NULL,
+					   rname VARCHAR(255) NOT NULL,
+                       link VARCHAR(255) DEFAULT NULL,
+                       FOREIGN KEY (tid)
+						REFERENCES tasks (tid)
+						ON UPDATE RESTRICT ON DELETE CASCADE);
+
+
+

@@ -1,0 +1,8 @@
+package com.example.task;
+
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface TaskRepositroy extends CrudRepository<Task, Integer> {
+
+}

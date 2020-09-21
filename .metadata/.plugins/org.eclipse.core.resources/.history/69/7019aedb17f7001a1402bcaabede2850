@@ -1,0 +1,12 @@
+package com.example.mentor;
+
+import org.springframework.data.repository.CrudRepository;
+import com.example.mentor.Associate;
+
+// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
+// CRUD refers Create, Read, Update, Delete
+
+public interface AssociateRepository extends CrudRepository<Associate, Integer> {
+	
+
+}
